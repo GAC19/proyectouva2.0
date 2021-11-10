@@ -1,0 +1,21 @@
+*{text-decoration:none; list-style:none; margin:0px; padding:0px; outline:none;}
+body{background: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url("../imagen/inicio.jpg");  
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;}
+section{ color: rgb(0, 78, 0); text-align: center; font-size: 30px; display:block; position:relative;}
+header{width:100%; display:table; ; margin-bottom:50px;height: 80px;}
+nav{width:100%; float:left;}
+nav ul{display:table; float:right;}
+nav ul li{float:left;}
+nav ul li:last-child{padding-right:0px;}
+nav ul li a{color:#014e15; font-size:18px; padding: 25px 20px ; display:block;}
+nav ul li a:hover{background-color:#043302; color:#fde428; transition: all 0.5s ease 0s;}
+.centro{width:100%; display:flex; position:static}
+.centro button{background-color: green;color: white;font-weight: bold;font-size: 12px;padding: 2px;width: 200px;height: 50px;border-radius: 30px;float: right;margin-right: 5%;margin-top: 0.5%;}
+.content{margin-left: 20%; margin-right: 20%;}
+.content h2{font-size:30px; font-weight:500; color:#125024; border-bottom:1px solid #013f19; display:table; padding-bottom:10px; margin-bottom:10px;}
+.content p{font-size:28px; text-align:justify;}
+footer{background-color: rgb(1, 47, 1); color: white; width: 100%; height: 150px; text-align: center; padding-top: 50px;}

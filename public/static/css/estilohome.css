@@ -1,0 +1,122 @@
+:root{
+    --width:300px;
+    --padding:10px;
+    --bgcolor:  #777a7a;
+    --width-collapsed:50px;
+}
+/* body{
+    background-image: url('../imagen/portada.jpg');
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    padding: 0;
+    margin: 0;
+    margin-left: var(--width-collapsed);
+} */
+/* #profile{
+    text-align: center; */
+    /* margin-top: 20px;
+    margin-bottom: 50px; */
+
+/* .body-expanded{
+    margin-left: var(--width);
+} */
+/* #main-container{
+    color: white;
+    margin-bottom: 10px;
+} */
+/* nav2{
+    background-color: blue;
+    position: relative;
+}
+ */
+
+
+
+.izq{
+    /* background-color: var(--bgcolor); */
+    color: white; 
+    position: fixed;
+    width: 200px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    margin-bottom: 10px;
+}
+.izq span{
+    color:red;
+}
+.izq a{
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    position: relative;
+    margin-left: 10px;
+}
+
+section{
+    position:absolute;
+    margin-left: 250px;
+    color: black;
+    background-color: green;
+}
+
+/* HEADER*/
+/* #sidemenu header{
+    box-sizing: border-box;
+    border-bottom: solid 1px var(--hovercolor);
+}
+#sidemenu #header #title{
+    box-sizing: border-box;
+    overflow: hidden;
+}
+#sidemenu #header #title, #sidemenu #header #menu-btn{
+    vertical-align: middle;
+}
+#sidemenu #header #menu-btn{
+    display: inline-block;
+}
+#sidemenu #header #menu-tbn{
+    cursor: pointer;
+    padding: 10px;
+    width: var(--width-collapsed);
+    box-sizing:border-box;
+}
+
+#sidemenu #header #menu-btn:hover{
+    background-color: var(--hovercolor);
+}
+#sidemenu #header #menu-btn .btn-hamburger{
+    background-color: #fff;
+    width: 100%;
+    height: 2px;
+    margin: 5px 0;
+    
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
