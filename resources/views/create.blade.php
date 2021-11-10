@@ -18,11 +18,18 @@
 
         </div>
     </nav>
+    <div class="container"><button onclick="document.location='./'" class="btn bg-success">volver</button></div><br>
+    
     
     <div class="container">
+        
+        @if (session('mensaje'))
+        <div class="alert alert-success">{{session('mensaje')}}</div>
+        @endif
+
         <form action="./agregar" method="POST">
             @csrf
-            <h3>CREACION DE USUARIO</h3>
+            <h3>CREACION DE USUARIO</h3><hr>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Rut Empresa</label>
                 <input type="text" class="form-control" name="rut_empresa">
@@ -72,6 +79,7 @@
               {!! $errors->first('telefono_empresa') !!}
             </div>
             <button type="submit" class="btn btn-primary">GUARDAR</button>
+            
         </form>
             
     </div>

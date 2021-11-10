@@ -55,7 +55,7 @@ class admcontroller extends Controller
         $datoNueva->password=$request->password;
         
         $datoNueva->save();
-        return back();
+        return back()->with('mensaje','Usuario creado');
     }
 
 }
