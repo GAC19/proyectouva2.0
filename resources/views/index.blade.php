@@ -23,9 +23,29 @@
                 <li><a href="#equipo">Nuestro Equipo</a></li>
             </ul>  
         </nav>
-        <button onclick="document.location='login'">LOGIN</button>
+        <div>
+            <button onclick="document.location='login'" style="height: 30px; width: 110px">LOGIN</button>
+    
+                <button onclick="document.location='register'" style="height: 30px; width: 110px">REGISTRARSE</button>
+            </div>
         </section>
+        {{-- <div class="hidden fixed top-0 left-0 px-6 py-4 sm:block">
+            @auth
+                <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
+            @else
+                <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+
+                @if (Route::has('register'))
+                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                @endif
+            @endauth
+        </div> --}}
+    
+        
+        
+
         </header>
+
         <section class="content">
         <h1>Expotacion de Uvas</h1><br>
         <p>Nos dedica a la exportación de uvas de mesa, 

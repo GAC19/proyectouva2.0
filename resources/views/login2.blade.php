@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{ asset('./static/css/estilo.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('./static/css/bootstrap.min.css') }}">
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <title>LOGIN</title>
 </head>
 
@@ -41,7 +40,7 @@
                             </div>
                             <div class="form-group">
                                 <a href="cliente/user">
-                                    <input type="button" value="Ingresar" class="btn login_btn bg-success"></a>
+                                    <input type="button" value="Ingresar" class="btn bg-success text-light"></a>
                                 </a>
                             </div>
                         </form>
@@ -56,10 +55,12 @@
                             <div class="d-inline p-2"><a href="#">olvidaste tu contraseña</a></div>
                         </div>
                     </div>
+                    
                 </div>
             </div>
+            <div class="container"><button onclick="document.location='./'" class="btn bg-success text-light">volver</button></div><br>
             <a href="usuario/home_user">usuario</a>
-      <a href="adm/home_adm">administrador</a>
+            <a href="adm/home_adm">administrador</a>
     </div>
 </body>
 </html>

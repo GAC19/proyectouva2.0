@@ -15,8 +15,8 @@ class clientecontroler extends Controller
         return view('create');
     }
     
-    public function login(){
-        return view('login');
+    public function login2(){
+        return view('login2');
     }
 
     public function user(){

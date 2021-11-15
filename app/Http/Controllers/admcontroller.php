@@ -22,11 +22,27 @@ class admcontroller extends Controller
     }
 
     public function personal(){
-        // return "hola;";
+   
         $usuario = App\Models\usuarios::all();
-
         return view('adm/personal', compact('usuario'));
     }
+
+    
+    public function agregarpersonal(Request $request){
+        $pers = new App\Models\usuarios;
+        $pers->name=$request->name;
+        $pers->email=$request->email;
+        $pers->password=$request->password;
+
+        $pers->save();
+        return back();
+    }
+
+//     public function editarpersonal($id){
+//         $usuario=App\Models\usuarios::findOrFail($id);
+//         return view('editarpersonal', compact('usuario'));
+//    }
+
 
     
     public function agregar(Request $request)
@@ -57,5 +73,8 @@ class admcontroller extends Controller
         $datoNueva->save();
         return back()->with('mensaje','Usuario creado');
     }
+
+    
+
 
 }

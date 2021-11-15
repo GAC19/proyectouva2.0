@@ -21,7 +21,7 @@
           </div>
           <div><input type="submit" class="btn btn-success"></div>
         </div>
-    @endsection>
+    @endsection
 
 
 

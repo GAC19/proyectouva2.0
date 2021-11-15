@@ -18,7 +18,7 @@
 
         </div>
     </nav>
-    <div class="container"><button onclick="document.location='./'" class="btn bg-success">volver</button></div><br>
+    <div class="container"><button onclick="document.location='./'" class="btn bg-success text-light">volver</button></div><br>
     
     
     <div class="container">
@@ -27,59 +27,76 @@
         <div class="alert alert-success">{{session('mensaje')}}</div>
         @endif
 
+
+
+
         <form action="./agregar" method="POST">
             @csrf
             <h3>CREACION DE USUARIO</h3><hr>
-            <div class="mb-3">
+            <h5>Antecedente Empresa</h5>
+            <ul>
+        <div class="row">        
+            <div class="mb-3 col">
                 <label for="exampleInputEmail1" class="form-label">Rut Empresa</label>
-                <input type="text" class="form-control" name="rut_empresa">
+                <input type="text" class="form-control" name="rut_empresa" value="{{old('rut_empresa')}}">
                 {!! $errors->first('rut_empresa') !!}
                 <div id="emailHelp" class="form-text">indique razon social</div>
             </div>
-            <div class="mb-3">
+
+            <div class="mb-3 col">
                 <label for="exampleInputEmail1" class="form-label">Nombre Empresa</label>
-                <input type="text" class="form-control" name="nombre_empresa">
+                <input type="text" class="form-control" name="nombre_empresa"  value="{{old('nombre_empresa')}}">
                 {!! $errors->first('nombre_empresa') !!}
                 <div id="emailHelp" class="form-text">nombre completo de la empresa</div>
             </div>
-            <div class="mb-3">
+            <div class="mb-3 col">
 
                  <label for="exampleInputEmail1" class="form-label">Telefono Empresa</label>
-                <input type="text" class="form-control" name="telefono_empresa">
+                <input type="text" class="form-control" name="telefono_empresa"  value="{{old('telefono_empresa')}}">
                 {!! $errors->first('telefono_empresa') !!}
                 <div id="emailHelp" class="form-text">telefono fijo o celular</div>
             </div>
-            <div class="mb-3">
+            <div class="mb-3 col">
                 <label for="exampleInputEmail1" class="form-label">Ciudad</label>
-                <input type="text" class="form-control" name="ciudad">
+                <input type="text" class="form-control" name="ciudad"  value="{{old('ciudad')}}">
                 {!! $errors->first('ciudad') !!}
                 <div id="emailHelp" class="form-text">ciudad o pais</div>
             </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Nombre</label>
-                <input type="text" class="form-control" name="nombre">
-                {!! $errors->first('nombre') !!}
-                <div id="emailHelp" class="form-text">Nombre del representante</div>
+        </ul><hr>
+
+        {{-- -------------------------------------ANTECEDENTE USUARIO-------------------------------------------------------- --}}
+            {{-- <div class="row justify-content-end"> --}}
+            <div class="row justify-content-start">
+                <h5>Antecedente Contacto</h5>
+                <div class="mb-3 col-4">
+                    <label for="exampleInputEmail1" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" name="nombre"  value="{{old('nombre')}}">
+                    {!! $errors->first('nombre') !!}
+                    <div id="emailHelp" class="form-text">Nombre del representante</div>
+                </div>
+                <div class="mb-3 col-4">
+                    <label for="exampleInputEmail1" class="form-label">Cedula de Identidad</label>
+                    <input type="text" class="form-control" name="rut"  value="{{old('rut')}}">
+                    {!! $errors->first('rut') !!}
+                    <div id="emailHelp" class="form-text">Cedula de Identidad del representante</div>
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Cedula de Identidad</label>
-                <input type="text" class="form-control" name="rut">
-                {!! $errors->first('cedula') !!}
-                <div id="emailHelp" class="form-text">Cedula de Identidad del representante</div>
+            <div class="row justify-content-start">
+                <div class="mb-3 col-4">
+                    <label for="exampleInputEmail1" class="form-label">Dirección de correo electrónico</label>
+                    <input type="exit" class="form-control" name="email" value="{{old('email')}}">
+                    {!! $errors->first('email') !!}
+                    <div id="emailHelp" class="form-text">Nunca compartiremos su correo electrónico con nadie más.</div>
+                </div>
+                <div class="mb-3 col-4">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" class="form-control" name="password" value="{{old('password')}}">
+                    {!! $errors->first('password') !!}
+                    </div>
+                </ul>
             </div>
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Dirección de correo electrónico</label>
-              <input type="exit" class="form-control" name="email">
-              {!! $errors->first('telefono_empresa') !!}
-              <div id="emailHelp" class="form-text">Nunca compartiremos su correo electrónico con nadie más.</div>
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Password</label>
-              <input type="password" class="form-control" name="password">
-              {!! $errors->first('telefono_empresa') !!}
-            </div>
-            <button type="submit" class="btn btn-primary">GUARDAR</button>
-            
+            <button type="submit" class="btn bg-success text-light">GUARDAR</button>
+            {{-- </div> --}}
         </form>
             
     </div>

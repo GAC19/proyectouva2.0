@@ -2,26 +2,25 @@
     @section('title','home')
     @section('content')
     
-        <h1 style="text-align: center">PRODUCTO</h1>
+        <h1 style="text-align: center">PRODUCTO</h1><br><hr>
 
         <div class="container">
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">TIPO VARIEDAD</label>
-                    <select class="form-select" aria-label="Default select example">
+            <div class="mb-2 col-4">
+                <h5 class="font-weight-light">TIPO VARIEDAD</h5>
+                    <select class="form-select mb-1" name="1.-">
                         <option selected>seleccione una opcion</option>
                         <option value="1">Variedad Roja</option>
                         <option value="2">Variedad Verde</option>
                         <option value="3">variedad Negra</option>
-                    </select><br>
-                    <select class="form-select" aria-label="Default select example">
+                    </select>
+                    <select class="form-select">
                         <option selected>seleccione una opcion</option>
                         <option value="1">#</option>
                         <option value="2">#</option>
                         <option value="3">#</option>
                     </select>
               </div>
-              <hr><br>
-              <div class="mb-3">
+              <div class="mb-3 col-2">
               <label for="exampleFormControlInput1" class="form-label">CATEGORIA DE UVA</label>
                     <select class="form-select" aria-label="Default select example">
                         <option selected>seleccione una opcion</option>
@@ -43,7 +42,7 @@
               </div>
               <hr>
               <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">TIPO DE EMBALAJE</label>
+                <label for="exampleFormControlInput1" class="form-label col-4">TIPO DE EMBALAJE</label>
                       <select class="form-select" aria-label="Default select example">
                           <option selected>seleccione una opcion</option>
                           <option value="1">AGRANEL</option>
@@ -59,4 +58,4 @@
               <div><input type="submit" class="btn btn-success"></div>
             </div>
 
-    @endsection> 
+    @endsection

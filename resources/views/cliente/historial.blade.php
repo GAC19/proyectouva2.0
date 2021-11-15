@@ -2,7 +2,7 @@
 @section('title','home')
 @section('content')
 
-
+  <div class="container">
     <h2>SEGUIMIENTO</h2>
     <table class="table">
         <thead>
@@ -55,9 +55,8 @@
                     <td>{{$item->fecha}}</td>
                     <td>{{$item->estado}}</td>
                     <td>{{$item->descripcion}}</td>
-                    <td><a href="#" class="btn btn-success btn-ms">Editar</a></td>
                 </tr>
             @endforeach
       </table>
-
+  </div>
 @endsection
