@@ -30,7 +30,7 @@
             <li><a href="historial">HISTORIAL</a></li>
             <li><a href="informacion">INFORMACION</a></li>
             <li><a href="consulta">CONSULTA</a></li>
-            <li><a href="../login" class="text-warning">SALIR</a></li>
+            <li><a href="{{ url('/logout') }}" class="text-warning"> Cerrar Secccion </a></li>
         </ul>
         <label id="icon">
             <i class="fas fa-bars"></i>

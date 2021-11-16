@@ -31,7 +31,7 @@ Route::get('/', [clientecontroler::class, 'index']);
 Route::get('create',[clientecontroler::class, 'create']);
 Route::get('login2',[clientecontroler::class, 'login2']);
 
-Route::get('cliente/user', [clientecontroler::class, 'user'])->name('user');
+Route::get('cliente/user', [clientecontroler::class, 'user'])->name('home');
 Route::get('cliente/producto',[clientecontroler::class, 'producto']);
 Route::get('cliente/historial', [clientecontroler::class, 'historial']);
 Route::get('cliente/consulta', [clientecontroler::class, 'consulta']);
@@ -44,6 +44,6 @@ Route::get('adm/personal', [admcontroller::class, 'personal']);
 
 
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/user', [App\Http\Controllers\HomeController::class, 'user'])->name('user');
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+// Route::get('/user', [App\Http\Controllers\HomeController::class, 'user'])->name('user');
