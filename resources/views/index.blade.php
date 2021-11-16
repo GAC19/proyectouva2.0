@@ -24,7 +24,12 @@
             </ul>  
         </nav>
         <div>
+        {{-- {!! $name = null !!} --}}
+            {{-- @if (Auth::user()->name == null) --}}
+                {{-- login boton no --}}
+            {{-- @else --}}
             <button onclick="document.location='login'" style="height: 30px; width: 110px">LOGIN</button>
+            {{-- @endif --}}
     
                 <button onclick="document.location='register'" style="height: 30px; width: 110px">REGISTRARSE</button>
             </div>

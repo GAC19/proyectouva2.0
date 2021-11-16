@@ -10,28 +10,18 @@
         <thead>
           <tr>
             <th scope="col">#id</th>
-            <th scope="col">rut_empresa</th>
-            <th scope="col">nombre_empresa</th>
-            <th scope="col">telefono_empresa</th>
-            <th scope="col">ciudad</th>
-            <th scope="col">nombre</th>
-            <th scope="col">rut</th>
-            <th scope="col">email</th>
-            <th scope="col">password</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">correo electronico</th>
+            <th scope="col">creacion de la cta.</th>
           </tr>
         </thead>
         <tbody>
             @foreach ($dato as $item)
                 <tr>
                     <th scope="row">{{$item->id}}</th>
-                    <td>{{$item->rut_empresa}}</td>
-                    <td>{{$item->nombre_empresa}}</td>
-                    <td>{{$item->telefono_empresa}}</td>
-                    <td>{{$item->ciudad}}</td>
-                    <td>{{$item->nombre}}</td>
-                    <td>{{$item->rut}}</td>
+                    <td>{{$item->name}}</td>
                     <td>{{$item->email}}</td>
-                    <td>{{$item->password}}</td>
+                    <td>{{$item->updated_at}}</td>
                     <td><a href="{{route('editarpersonal', $item)}}" class="btn btn-success btn-ms">Editar</a> <a href="#" class="btn btn-danger btn-ms">Eliminar</a></td>
                 </tr>
             @endforeach

@@ -4,25 +4,50 @@ namespace App\Http\Controllers;
 use App;
 use App\Models;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class clientecontroler extends Controller
 {
-    public function index(){
+/*     public function index(){
         return view('index');
+    } */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
+
+
     
-    public function create(){
-        return view('create');
-    }
+    // public function create(){
+    //     return view('create');
+    // }
     
-    public function login2(){
-        return view('login2');
-    }
+    // public function login2(){
+    //     return view('login2');
+    // }
 
     public function user(){
-        $usuario = App\Models\usuarios::all();
+        /* $usuario = App\Models\User::all(); */
+        $user = DB::table('users')->get('name');
+        if (Auth::user()->perfil == 'Usuario') {
+            # code...
+            /* dd('gustavo admin'); */
+            
+            return view('cliente/user', compact('user'));
 
-        return view('cliente/user', compact('usuario'));
+        } else {
+            # code...
+            /* dd(Auth::user()->name); */
+            return view('adm/home_adm');
+            dd('gustavo no admin');
+
+        }
+        
+        /* dd($user); */
+
+        /* return view('cliente/user', compact('user')); */
     }
 
     public function producto(){
@@ -30,9 +55,40 @@ class clientecontroler extends Controller
         return view('cliente/producto');
     }
 
+
+    // COMPRAR
+    public function comprasrealizada(Request $request){
+       
+        $validated = $request->validate(
+            [
+             'variedad'=>'required',
+             'tipo'=>'required',
+             'categoria'=>'required',
+             'embalaje'=>'required',
+             'descripcion'=>'required',
+             'rut_empresa'=>'required',
+             'nombre_empresa'=>'required',
+             'direccion'=>'required',
+            ]
+            );
+        $comp = new App\Models\compra;
+        $comp->variedad=$request->variedad;
+        $comp->tipo=$request->tipo;
+        $comp->categoria=$request->categoria;
+        $comp->embalaje=$request->embalaje;
+        $comp->descripcion=$request->descripcion;
+        $comp->rut_empresa=$request->rut_empresa;
+        $comp->nombre_empresa=$request->nombre_empresa;
+        $comp->direccion=$request->direccion;
+
+        $comp->save();
+        return back();
+    }
+
+    // VER
     public function historial(){
 
-        $segui = App\Models\seguimiento::all();
+        $segui = App\Models\compra::all();
         return view('cliente/historial', compact('segui'));
     }
 

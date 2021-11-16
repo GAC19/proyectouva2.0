@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admcontroller;
 use App\Http\Controllers\clientecontroler;
+use App\Http\Controllers\clientecontroler_Index;
 use App\Http\Controllers\pagescontroller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -27,12 +28,13 @@ Route::post('/agregar', [admcontroller::class, 'agregar'])->name('agregar'); //p
 Route::post('/agregarpersonal', [admcontroller::class, 'agregarpersonal'])->name('agregarpersonal'); 
 Route::get('/editarpersonal', [admcontroller::class, 'editarpersonal'])->name('editarpersonal');
 
-Route::get('/', [clientecontroler::class, 'index']);
+Route::get('/', [clientecontroler_Index::class, 'index']);
 Route::get('create',[clientecontroler::class, 'create']);
 Route::get('login2',[clientecontroler::class, 'login2']);
 
 Route::get('cliente/user', [clientecontroler::class, 'user'])->name('home');
 Route::get('cliente/producto',[clientecontroler::class, 'producto']);
+Route::post('/comprasrealizada',[clientecontroler::class, 'comprasrealizada'])->name('comprasrealizada');
 Route::get('cliente/historial', [clientecontroler::class, 'historial']);
 Route::get('cliente/consulta', [clientecontroler::class, 'consulta']);
 Route::get('cliente/informacion', [clientecontroler::class, 'informacion']);

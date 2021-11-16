@@ -28,7 +28,7 @@
             <li><a href="usuarios">USUARIOS</a></li>
             <li><a href="#">PRODUCTO</a></li>
             <li><a href="#">MENSAJE</a></li>
-            <li><a href="../login" class="text-warning">SALIR</a></li>
+            <li><a href="{{ url('/logout') }}" class="text-warning"> Cerrar Secccion </a></li>
         </ul>
         <label id="icon">
             <i class="fas fa-bars"></i>

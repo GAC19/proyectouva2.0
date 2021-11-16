@@ -2,79 +2,33 @@
 @section('title','home')
 @section('content')
 
-
-
-        <div class="container">
-                <h1 style="text-align: center">USER</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quam numquam, culpa voluptatibus ipsam eaque quaerat quo, reiciendis soluta asperiores doloribus. Nulla minus, nisi vel non rem perspiciatis ullam voluptate.</p>
-
-                @foreach ($usuario as $item)
-              
-                  <th scope="row"> <p>{{$item->id}}</p></th>
-                  
-                  <th><p>{{$item->name}}</p></th>
-                  <th><p>{{$item->email}}</p></th>
-                  <th><p>{{$item->password}}</p></th>
-                @endforeach
+<div class="container">
+    <div class="row">
+        <div class="col-sm-10">
+            <h3>Antecedentes:</h3>
+            <label><strong>Usuario: {{ Auth::user()->name }}</strong></label><br>
+            <label><strong>Correo electronico: {{ Auth::user()->email }} </strong></label><hr>
         </div>
 
-        <div id="app">
-                <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-                    <div class="container">
-                        <a class="navbar-brand" href="{{ url('/') }}">
-                            {{ config('app.name', 'Laravel') }}
-                        </a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-        
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <!-- Left Side Of Navbar -->
-                            <ul class="navbar-nav mr-auto">
-        
-                            </ul>
-        
-                            <!-- Right Side Of Navbar -->
-                            <ul class="navbar-nav ml-auto">
-                                <!-- Authentication Links -->
-                                @guest
-                                    @if (Route::has('login'))
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                        </li>
-                                    @endif
-        
-                                    @if (Route::has('register'))
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                        </li>
-                                    @endif
-                                @else
-                                    <li class="nav-item dropdown">
-                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                            {{ Auth::user()->name }}
-                                        </a>
-        
-                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="{{ route('logout') }}"
-                                               onclick="event.preventDefault();
-                                                             document.getElementById('logout-form').submit();">
-                                                {{ __('Logout') }}
-                                            </a>
-        
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                                @csrf
-                                            </form>
-                                        </div>
-                                    </li>
-                                @endguest
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-        
-            </div>
+        </div>
+                <br><h1 style="text-align: center">Bienvenido</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quam numquam, culpa voluptatibus ipsam eaque quaerat quo, reiciendis soluta asperiores doloribus. Nulla minus, nisi vel non rem perspiciatis ullam voluptate.</p>
+        </div>
 
-
-
+</div> 
 @endsection
+
+
+
+
+{{-- @foreach ($segui as $item)
+<tr>ñ
+    <th scope="row">{{$item->id}}</th>
+    <td>{{$item->variedad}}</td>
+    <td>{{$item->tipo}}</td>
+    <td>{{$item->categoria}}</td>
+    <td>{{$item->embalaje}}</td>
+    <td>{{$item->descripcion}}</td>
+    <td>{{$item->updated_at}}</td>
+</tr>
+@endforeach --}}

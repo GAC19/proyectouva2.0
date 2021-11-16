@@ -30,6 +30,7 @@
 
 
 
+        
         <form action="./agregar" method="POST">
             @csrf
             <h3>CREACION DE USUARIO</h3><hr>
