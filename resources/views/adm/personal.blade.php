@@ -5,7 +5,7 @@
   <div class="container">
     <h1>PERSONAL</h1><br>
 
-    <form action="../agregarpersonal" method="POST">
+    <form action="{{route('agregarpersonal')}}" method="POST">
       @csrf
       <div class="row justify-content-start">  
         <div class="mb-3 col">
@@ -20,9 +20,15 @@
       </div>
       <div class="mb-3 col">
           <label for="exampleInputEmail1" class="form-label">Password</label>
-          <input type="text" class="form-control" name="password" value="{{old('password')}}">
+          <input type="password" class="form-control" name="password" value="{{old('password')}}">
           {!! $errors->first('password') !!}
-      </div></div>
+      </div>
+      <div class="mb-3 col">
+        <label for="exampleInputEmail1" class="form-label">perfil</label>
+        <input type="text" class="form-control" name="perfil" value="{{old('perfil')}}">
+        {!! $errors->first('perfil') !!}
+      </div>
+      </div>
       <button type="submit" class="btn bg-success text-light">GUARDAR</button><br><hr>
     </form><br>
 
@@ -35,17 +41,26 @@
             <th scope="col">#id</th>
             <th scope="col">name</th>
             <th scope="col">email</th>
-            <th scope="col">password</th>
+            <th scope="col">perfil</th>
+            <th scope="col">acciones</th>
           </tr>
         </thead>
         <tbody>
-            @foreach ($usuario as $item)
+            @foreach ($us as $item)
                 <tr>
                     <th scope="row">{{$item->id}}</th>
-                    {{-- <td><a href="{{route('ancla', $item)}}"></a> {{$item->name}}</td> --}}
+                    <td>{{$item->name}}</td>
                     <td>{{$item->email}}</td>
-                    <td>{{$item->password}}</td>
-                    <td><a href="{{route('editarpersonal')}}" class="btn btn-success btn-ms">Editar</a> <a href="#" class="btn btn-danger btn-ms">Eliminar</a></td>
+                    <td>{{$item->perfil}}</td>
+                    {{-- <td><a href="{{route('editar', $us)}}" class="btn btn-success btn-ms">Editar</a> <a href="#" class="btn btn-danger btn-ms">Eliminar</a></td> --}}
+                    <td><a href="{{route('adm.editar', $item)}}" class="btn btn-warning btn-sm">Editar</a>
+                    <form action="{{route('adm.eliminar', $item)}}" method="POST" class="d-inline">
+                      
+                      @method('DELETE')
+                      @csrf
+                      <button class="btn btn-danger" type="submit">Eliminar</button>
+                    </form>
+                  </td>
                 </tr>
             @endforeach
           

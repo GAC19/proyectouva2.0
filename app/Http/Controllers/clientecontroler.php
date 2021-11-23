@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App;
 use App\Models;
+use App\Models\compra;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -17,16 +18,6 @@ class clientecontroler extends Controller
     {
         $this->middleware('auth');
     }
-
-
-    
-    // public function create(){
-    //     return view('create');
-    // }
-    
-    // public function login2(){
-    //     return view('login2');
-    // }
 
     public function user(){
         /* $usuario = App\Models\User::all(); */
@@ -92,13 +83,4 @@ class clientecontroler extends Controller
         return view('cliente/historial', compact('segui'));
     }
 
-    public function consulta(){
-     
-        return view('cliente/consulta');
-    }
-
-    public function informacion(){
-     
-        return view('cliente/informacion');
-    }
 }

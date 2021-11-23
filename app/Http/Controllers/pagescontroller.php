@@ -37,10 +37,10 @@ class pagescontroller extends Controller
         return back();
     }
 
-    public function editar($id){
-        return "hola";
+    //public function editar($id){
+       // return "hola";
         // $nota = App\Models\usuarios::findOrFail($id);
         // return view('notas.editar', compact('nota'));
-    }
+    //}
     
 }

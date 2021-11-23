@@ -18,34 +18,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/* Route::get('/',[pagescontroller::class, 'index']);
-
-Route::get('login',[pagescontroller::class, 'login']);
-Route::get('create',[pagescontroller::class, 'create']); */
-
-/* Route::get('editar/{id}', 'pagescontroller@editar' )->name('datos.editar'); */
 Route::post('/agregar', [admcontroller::class, 'agregar'])->name('agregar'); //para agregar a la BD
 Route::post('/agregarpersonal', [admcontroller::class, 'agregarpersonal'])->name('agregarpersonal'); 
-Route::get('/editarpersonal', [admcontroller::class, 'editarpersonal'])->name('editarpersonal');
 
 Route::get('/', [clientecontroler_Index::class, 'index']);
-Route::get('create',[clientecontroler::class, 'create']);
-Route::get('login2',[clientecontroler::class, 'login2']);
 
 Route::get('cliente/user', [clientecontroler::class, 'user'])->name('home');
 Route::get('cliente/producto',[clientecontroler::class, 'producto']);
 Route::post('/comprasrealizada',[clientecontroler::class, 'comprasrealizada'])->name('comprasrealizada');
 Route::get('cliente/historial', [clientecontroler::class, 'historial']);
-Route::get('cliente/consulta', [clientecontroler::class, 'consulta']);
-Route::get('cliente/informacion', [clientecontroler::class, 'informacion']);
-
 
 Route::get('adm/home_adm', [admcontroller::class, 'administrador']);
-Route::get('adm/usuarios', [admcontroller::class, 'usuarios']);
 Route::get('adm/personal', [admcontroller::class, 'personal']);
+Route::get('adm/editarpersonal', [admcontroller::class, 'editarpersonal'])->name('editar');
+
+Route::get('adm/editar/{id}', [admcontroller::class, 'editar'])->name('adm.editar');
+Route::delete('eliminar/{id}', [admcontroller::class, 'eliminar'])->name('adm.eliminar');
 
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
-// Route::get('/user', [App\Http\Controllers\HomeController::class, 'user'])->name('user');
+

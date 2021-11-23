@@ -7,6 +7,8 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('./static/css/style.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('./static/css/carrusel.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('./static/css/whatsapp.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('./static/css/popup.css') }}">
+
         <title>Document</title>
     </head>
     <body> 
@@ -24,32 +26,18 @@
             </ul>  
         </nav>
         <div>
-        {{-- {!! $name = null !!} --}}
-            {{-- @if (Auth::user()->name == null) --}}
-                {{-- login boton no --}}
-            {{-- @else --}}
             <button onclick="document.location='login'" style="height: 30px; width: 110px">LOGIN</button>
-            {{-- @endif --}}
-    
-                <button onclick="document.location='register'" style="height: 30px; width: 110px">REGISTRARSE</button>
+            <button onclick="document.location='register'" style="height: 30px; width: 110px">REGISTRARSE</button>
             </div>
         </section>
-        {{-- <div class="hidden fixed top-0 left-0 px-6 py-4 sm:block">
-            @auth
-                <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
-            @else
-                <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
-
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                @endif
-            @endauth
-        </div> --}}
-    
-        
-        
 
         </header>
+        <button id="btn-abrir-popup" class="btn-abrir-popup">Abrir Ventana Emergente</button>
+
+
+
+        
+        
 
         <section class="content">
         <h1>Expotacion de Uvas</h1><br>
@@ -149,5 +137,28 @@
                 </div>
             </div>
         </footer>
+
+        <div class="overlay" id="overlay">
+			<div class="popup" id="popup">
+				<a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+				<h3>SUSCRIBETE</h3>
+				<h4>y recibe un cupon de descuento.</h4>
+				<form action="">
+					<div class="contenedor-inputs">
+						<input type="text" placeholder="Nombre">
+						<input type="email" placeholder="Correo">
+					</div>
+					<input type="submit" class="btn-submit" value="Suscribirse">
+                    <label for="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem odio neque nobis magni culpa quaerat asperiores nemo sint aut, cumque error harum, corrupti veritatis deleniti dicta iusto, vero unde ab.</label>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos doloribus dolores nobis fuga quidem a natus vitae corrupti corporis voluptates, earum nihil dolore in voluptate sint velit distinctio sed adipisci!
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam aspernatur quibusdam veritatis iure, voluptas reprehenderit commodi. Illum voluptates fugit dolore consequuntur, nostrum dicta repudiandae aperiam cum rerum id at exercitationem?
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam non corrupti dolores recusandae fuga ut dignissimos sint, voluptatum laborum quo consequatur totam eum repudiandae deserunt veniam quisquam magnam enim facere.</p>
+            
+				</form>
+			</div>
+		</div>
+
+        <script src="./static/popup.js"></script>
+        
     </body>
     </html>

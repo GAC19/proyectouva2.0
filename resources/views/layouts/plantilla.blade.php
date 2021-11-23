@@ -28,8 +28,6 @@
             <li><a href="user">MI CUENTA</a></li>
             <li><a href="producto">MIS COMPRAS</a></li>
             <li><a href="historial">HISTORIAL</a></li>
-            <li><a href="informacion">INFORMACION</a></li>
-            <li><a href="consulta">CONSULTA</a></li>
             <li><a href="{{ url('/logout') }}" class="text-warning"> Cerrar Secccion </a></li>
         </ul>
         <label id="icon">

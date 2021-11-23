@@ -10,6 +10,9 @@
             <label><strong>Correo electronico: {{ Auth::user()->email }} </strong></label><hr>
         </div>
 
+        <input type="text" name="nombre" value=" {{ Auth::user()->name }}" >
+
+
         </div>
                 <br><h1 style="text-align: center">Bienvenido</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quam numquam, culpa voluptatibus ipsam eaque quaerat quo, reiciendis soluta asperiores doloribus. Nulla minus, nisi vel non rem perspiciatis ullam voluptate.</p>
