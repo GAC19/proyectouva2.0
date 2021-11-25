@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App;
 use App\Models;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
 class admcontroller extends Controller
@@ -23,11 +25,43 @@ class admcontroller extends Controller
     }
 
     public function editar($id){
-        $nota=App\Models\User::findOrFail($id);
-        return view('notas.editar', compact('nota'));
+        $pers=App\Models\User::findOrFail($id);
+        return view('adm.editar', compact('pers'));
     }
 
+    public function update(Request $request, User $notaupdate){
 
+        return User::create([
+            'password' => Hash::make($notaupdate['password']),
+        ]);
+
+        $notaupdate->name= $request->name;
+        $notaupdate->email= $request->email;
+        $notaupdate->perfil= $request->perfil;
+
+        $notaupdate->save();
+        return redirect()->route('adm.editarpersonal');
+
+    }
+
+    // public function update(Request $request, $id){
+    //     $notaupdate = App\Models\User::findOrFail($id);
+    //     $notaupdate->name= $request->name;
+    //     $notaupdate->email= $request->email;
+    //     $notaupdate->perfil= $request->perfil;
+
+    //     $notaupdate->save();
+    //     return back()->with('mensaje','nota actualizada');
+
+    // }
+
+
+
+
+
+
+
+    
     public function eliminar($id){
 
         $notaEliminar = App\Models\User::findOrFail($id);

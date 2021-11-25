@@ -32,12 +32,9 @@
         </section>
 
         </header>
-        <button id="btn-abrir-popup" class="btn-abrir-popup">Abrir Ventana Emergente</button>
 
+        {{-- <button id="btn-abrir-popup" class="btn-abrir-popup">Abrir Ventana Emergente</button> --}}
 
-
-        
-        
 
         <section class="content">
         <h1>Expotacion de Uvas</h1><br>
@@ -137,7 +134,7 @@
                 </div>
             </div>
         </footer>
-
+{{-- 
         <div class="overlay" id="overlay">
 			<div class="popup" id="popup">
 				<a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
@@ -158,7 +155,7 @@
 			</div>
 		</div>
 
-        <script src="./static/popup.js"></script>
+        <script src="./static/popup.js"></script> --}}
         
     </body>
     </html>

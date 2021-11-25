@@ -28,11 +28,12 @@ class clientecontroler extends Controller
             
             return view('cliente/user', compact('user'));
 
-        } else {
+        } 
+        else {
             # code...
             /* dd(Auth::user()->name); */
             return view('adm/home_adm');
-            dd('gustavo no admin');
+            // dd('gustavo no admin');
 
         }
         

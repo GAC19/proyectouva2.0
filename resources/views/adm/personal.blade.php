@@ -23,10 +23,15 @@
           <input type="password" class="form-control" name="password" value="{{old('password')}}">
           {!! $errors->first('password') !!}
       </div>
+
       <div class="mb-3 col">
-        <label for="exampleInputEmail1" class="form-label">perfil</label>
-        <input type="text" class="form-control" name="perfil" value="{{old('perfil')}}">
-        {!! $errors->first('perfil') !!}
+        <label for="exampleFormControlInput1" class="form-label">Perfil</label> 
+            <select class="form-select mb-1" name="perfil" value="{{old('variedad')}}">
+              <option selected>seleccione una opcion</option>
+              <option value="usuario">Usuario</option>
+              <option value="adm">Administrador</option>
+          </select>
+          {!! $errors->first('variedad') !!}
       </div>
       </div>
       <button type="submit" class="btn bg-success text-light">GUARDAR</button><br><hr>
@@ -63,8 +68,8 @@
                   </td>
                 </tr>
             @endforeach
-          
-
       </table>
   </div>
-@endsection
+
+  @endsection
+ 

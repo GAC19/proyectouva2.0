@@ -28,11 +28,12 @@ Route::get('cliente/producto',[clientecontroler::class, 'producto']);
 Route::post('/comprasrealizada',[clientecontroler::class, 'comprasrealizada'])->name('comprasrealizada');
 Route::get('cliente/historial', [clientecontroler::class, 'historial']);
 
-Route::get('adm/home_adm', [admcontroller::class, 'administrador']);
+Route::get('adm/home_adm', [admcontroller::class, 'administrador'])->name('home_adm');
 Route::get('adm/personal', [admcontroller::class, 'personal']);
 Route::get('adm/editarpersonal', [admcontroller::class, 'editarpersonal'])->name('editar');
 
 Route::get('adm/editar/{id}', [admcontroller::class, 'editar'])->name('adm.editar');
+Route::put('adm/editar/{id}', [admcontroller::class, 'update'])->name('adm.update');
 Route::delete('eliminar/{id}', [admcontroller::class, 'eliminar'])->name('adm.eliminar');
 
 
