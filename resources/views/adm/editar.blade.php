@@ -34,7 +34,8 @@
                     nombre:<input type="text" name="name" class="form-control mb-2" value="{{$pers->name}}">
                     email:<input type="text" name="email" class="form-control mb-2" value="{{$pers->email}}">
                     perfil: <input type="text" name="perfil" class="form-control mb-2" value="{{$pers->perfil}}">
-                    perfil: <input type="text" name="password" class="form-control mb-2" value="{{$pers->password}}">
+                    password: <input type="text" name="password" class="form-control mb-2" value="{{$pers->password}}">
+                    remember_token: <input type="text" name="remember_token" class="form-control mb-2" value="{{$pers->remember_token}}">
                     <button class="btn btn-warning btn-block" type="submit">Editar</button>
                 </form>
                 

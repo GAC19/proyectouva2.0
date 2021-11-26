@@ -93,7 +93,7 @@ class clientecontroler extends Controller
         $notaupdate->descripcion= $request->descripcion;
         $notaupdate->rut_empresa= $request->rut_empresa;
         $notaupdate->nombre_empresa= $request->nombre_empresa;
-        $notaupdate->direccion= $request->direccion;
+        $notaupdate->direccion=  $request->direccion;
 
         $notaupdate->save();
         

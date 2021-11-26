@@ -47,6 +47,7 @@
             <th scope="col">name</th>
             <th scope="col">email</th>
             <th scope="col">perfil</th>
+            <th scope="col">password</th>
             <th scope="col">acciones</th>
           </tr>
         </thead>
@@ -56,6 +57,7 @@
                     <th scope="row">{{$item->id}}</th>
                     <td>{{$item->name}}</td>
                     <td>{{$item->email}}</td>
+                    <td style="display: none">{{$item->password}}</td>
                     <td>{{$item->perfil}}</td>
                     {{-- <td><a href="{{route('editar', $us)}}" class="btn btn-success btn-ms">Editar</a> <a href="#" class="btn btn-danger btn-ms">Eliminar</a></td> --}}
                     <td><a href="{{route('adm.editar', $item)}}" class="btn btn-warning btn-sm">Editar</a>

@@ -30,19 +30,22 @@ class admcontroller extends Controller
         return view('adm.editar', compact('pers'));
     }
 
-    public function update(Request $request, User $notaupdate){
+    public function update(Request $request, $id){
 
         // return User::create([
         //     'password' => Hash::make($notaupdate['password']),
         // ]);
 
-        $notaupdate->name= $request->name;
-        $notaupdate->email= $request->email;
-        $notaupdate->perfil= $request->perfil;
-        $notaupdate->password= $request->password;
+        $pers=App\Models\User::findOrFail($id);
 
-        $notaupdate->save();
-        return redirect()->route('adm.editarpersonal');
+        $pers->name= $request->name;
+        $pers->email= $request->email;
+        $pers->password= $request->password;
+        $pers->perfil= $request->perfil;
+        $pers->remember_token= $request->remember_token;
+
+        $pers->save();
+        return redirect('adm/personal');
 
     }
 

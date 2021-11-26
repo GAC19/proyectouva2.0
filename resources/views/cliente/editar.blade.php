@@ -54,7 +54,7 @@
             descripcion: <input type="text" name="descripcion" class="form-control mb-2" value="{{$prod->descripcion}}">
             rut_empresa: <input type="text" name="rut_empresa" class="form-control mb-2" value="{{$prod->rut_empresa}}">
             nombre_empresa: <input type="text" name="nombre_empresa" class="form-control mb-2" value="{{$prod->nombre_empresa}}">
-            direccion: <input type="text" name="direccion" class="form-control mb-2" value="{{$prod->direccion}}">
+            direccion: <input type="text" name="direccion" class="form-control mb-2" style="display:none" value="{{$prod->direccion}}">
             <button class="btn btn-warning btn-block" type="submit">Editar</button>
         </form>
         
