@@ -7,6 +7,7 @@ use App\Models;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class admcontroller extends Controller
 {
@@ -31,13 +32,14 @@ class admcontroller extends Controller
 
     public function update(Request $request, User $notaupdate){
 
-        return User::create([
-            'password' => Hash::make($notaupdate['password']),
-        ]);
+        // return User::create([
+        //     'password' => Hash::make($notaupdate['password']),
+        // ]);
 
         $notaupdate->name= $request->name;
         $notaupdate->email= $request->email;
         $notaupdate->perfil= $request->perfil;
+        $notaupdate->password= $request->password;
 
         $notaupdate->save();
         return redirect()->route('adm.editarpersonal');

@@ -25,8 +25,12 @@ Route::get('/', [clientecontroler_Index::class, 'index']);
 
 Route::get('cliente/user', [clientecontroler::class, 'user'])->name('home');
 Route::get('cliente/producto',[clientecontroler::class, 'producto']);
-Route::post('/comprasrealizada',[clientecontroler::class, 'comprasrealizada'])->name('comprasrealizada');
 Route::get('cliente/historial', [clientecontroler::class, 'historial']);
+Route::post('/comprasrealizada',[clientecontroler::class, 'comprasrealizada'])->name('comprasrealizada');
+
+Route::get('cliente/editar/{id}',[clientecontroler::class, 'editar'])->name('cliente.editar');
+Route::put('cliente/editar/{id}', [clientecontroler::class, 'update'])->name('cliente.update');
+Route::delete('cliente/eliminar/{id}', [clientecontroler::class, 'eliminar'])->name('cliente.eliminar');
 
 Route::get('adm/home_adm', [admcontroller::class, 'administrador'])->name('home_adm');
 Route::get('adm/personal', [admcontroller::class, 'personal']);

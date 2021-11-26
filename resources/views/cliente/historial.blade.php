@@ -28,6 +28,13 @@
                     <td>{{$item->embalaje}}</td>
                     <td>{{$item->updated_at}}</td>
                     <td>{{$item->descripcion}}</td>
+                    <td><a href="{{route('cliente.editar', $item)}}" class="btn btn-warning btn-sm">Editar</a>
+                      <form action="{{route('cliente.eliminar', $item)}}" method="POST" class="d-inline">
+                        @method('DELETE')
+                        @csrf
+                        <button class="btn btn-danger" type="submit">Eliminar</button>
+                      </form>
+                    </td>
                 </tr>
             @endforeach
       </table>

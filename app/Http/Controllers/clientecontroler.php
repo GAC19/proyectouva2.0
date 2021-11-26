@@ -77,6 +77,38 @@ class clientecontroler extends Controller
         return back();
     }
 
+    public function editar($id){
+        $prod=App\Models\compra::findOrFail($id);
+        return view('cliente.editar', compact('prod'));
+    }
+
+    public function update(Request $request, $id){
+
+        $notaupdate=App\Models\compra::findOrFail($id);
+
+        $notaupdate->variedad= $request->variedad;
+        $notaupdate->tipo= $request->tipo;
+        $notaupdate->categoria= $request->categoria;
+        $notaupdate->embalaje= $request->embalaje;
+        $notaupdate->descripcion= $request->descripcion;
+        $notaupdate->rut_empresa= $request->rut_empresa;
+        $notaupdate->nombre_empresa= $request->nombre_empresa;
+        $notaupdate->direccion= $request->direccion;
+
+        $notaupdate->save();
+        
+        return redirect('cliente/historial');
+        // return redirect()->route('cliente/user');
+
+    }
+
+    public function eliminar($id){
+
+        $notaEliminar = App\Models\compra::findOrFail($id);
+        $notaEliminar->delete();
+    
+        return back()->with('mensaje', 'Nota Eliminada');
+    }
     // VER
     public function historial(){
 
