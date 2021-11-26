@@ -43,6 +43,9 @@
             cliente y puedan disgustar los productos agrícola de Chile.</p><br><br>
         </section>      
         <section id="quienessomos" class="content">
+
+            <h1>SE OCUPO OTRO PC</h1>
+
             <h2>¿QUIENES SOMOS?</h2>
             <p>
                 <br> 
