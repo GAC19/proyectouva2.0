@@ -44,7 +44,7 @@
         </section>      
         <section id="quienessomos" class="content">
 
-            <h1>SE OCUPO OTRO PC</h1>
+            <h1>MODIFICACION DEL NOTEBOOK</h1>
 
             <h2>¿QUIENES SOMOS?</h2>
             <p>
