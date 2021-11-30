@@ -9,6 +9,7 @@ class compra extends Model
 {
     // use HasFactory;
     protected $fillable = [
+    'usuario'=>'usuario',
     'variedad'=>'required',
     'tipo'=>'required',
     'categoria'=>'required',

@@ -7,12 +7,10 @@ use App\Models\compra;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use PhpParser\Node\Stmt\Foreach_;
 
 class clientecontroler extends Controller
 {
-/*     public function index(){
-        return view('index');
-    } */
 
     public function __construct()
     {
@@ -20,30 +18,18 @@ class clientecontroler extends Controller
     }
 
     public function user(){
-        /* $usuario = App\Models\User::all(); */
         $user = DB::table('users')->get('name');
         if (Auth::user()->perfil == 'Usuario') {
-            # code...
-            /* dd('gustavo admin'); */
             
             return view('cliente/user', compact('user'));
-
         } 
         else {
-            # code...
-            /* dd(Auth::user()->name); */
             return view('adm/home_adm');
-            // dd('gustavo no admin');
 
         }
-        
-        /* dd($user); */
-
-        /* return view('cliente/user', compact('user')); */
     }
 
     public function producto(){
-
         return view('cliente/producto');
     }
 
@@ -53,6 +39,7 @@ class clientecontroler extends Controller
        
         $validated = $request->validate(
             [
+             'usuario'=>'required',
              'variedad'=>'required',
              'tipo'=>'required',
              'categoria'=>'required',
@@ -61,9 +48,11 @@ class clientecontroler extends Controller
              'rut_empresa'=>'required',
              'nombre_empresa'=>'required',
              'direccion'=>'required',
+             'estado'=>'required',
             ]
             );
         $comp = new App\Models\compra;
+        $comp->usuario=$request->usuario;
         $comp->variedad=$request->variedad;
         $comp->tipo=$request->tipo;
         $comp->categoria=$request->categoria;
@@ -72,16 +61,18 @@ class clientecontroler extends Controller
         $comp->rut_empresa=$request->rut_empresa;
         $comp->nombre_empresa=$request->nombre_empresa;
         $comp->direccion=$request->direccion;
-
+        $comp->estado=$request->estado;
+        
         $comp->save();
         return back();
     }
-
+    
+       
     public function editar($id){
         $prod=App\Models\compra::findOrFail($id);
         return view('cliente.editar', compact('prod'));
     }
-
+    
     public function update(Request $request, $id){
 
         $notaupdate=App\Models\compra::findOrFail($id);
@@ -98,7 +89,6 @@ class clientecontroler extends Controller
         $notaupdate->save();
         
         return redirect('cliente/historial');
-        // return redirect()->route('cliente/user');
 
     }
 
@@ -109,11 +99,14 @@ class clientecontroler extends Controller
     
         return back()->with('mensaje', 'Nota Eliminada');
     }
-    // VER
-    public function historial(){
 
-        $segui = App\Models\compra::all();
+    public function historial(Request $request){
+        $nombre=Auth::user()->name;
+        $segui = compra::where('usuario','like',"$nombre")->paginate(10);       
         return view('cliente/historial', compact('segui'));
+        
+        // $us = App\Models\User::all();
+        // $us = User::paginate(1); //cantidad de columna a mostrar
     }
 
 }

@@ -34,11 +34,14 @@ Route::delete('cliente/eliminar/{id}', [clientecontroler::class, 'eliminar'])->n
 
 Route::get('adm/home_adm', [admcontroller::class, 'administrador'])->name('home_adm');
 Route::get('adm/personal', [admcontroller::class, 'personal']);
+Route::get('adm/historialtotal', [admcontroller::class, 'historialtotal']);
 Route::get('adm/editarpersonal', [admcontroller::class, 'editarpersonal'])->name('editar');
 
 Route::get('adm/editar/{id}', [admcontroller::class, 'editar'])->name('adm.editar');
 Route::put('adm/editar/{id}', [admcontroller::class, 'update'])->name('adm.update');
 Route::delete('eliminar/{id}', [admcontroller::class, 'eliminar'])->name('adm.eliminar');
+Route::get('adm/editarcompra/{id}', [admcontroller::class, 'editarcompra'])->name('adm.editarcompra');
+Route::put('adm/editarcompra/{id}', [admcontroller::class, 'updatecompra'])->name('adm.updatecompra');
 
 
 Auth::routes();

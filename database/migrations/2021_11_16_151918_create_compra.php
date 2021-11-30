@@ -15,6 +15,7 @@ class CreateCompra extends Migration
     {
         Schema::create('compras', function (Blueprint $table) {
             $table->id();
+            $table->string('usuario');
             $table->string('variedad');
             $table->string('tipo');
             $table->string('categoria');

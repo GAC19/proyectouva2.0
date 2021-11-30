@@ -2,13 +2,20 @@
 @section('title','home')
 @section('content')
     
-  <h1 style="text-align: left" class="container">PRODUCTO</h1><br><hr>
+  <div  class="container">
+    <h1 style="text-align: left">Realizar Compras</h1>
+    <h3>Usuario: {{ Auth::user()->name }}</h3><hr>
+  </div>
 
-
+  <?php
+  ?>
   <form action="../comprasrealizada" method="POST">
     @csrf
     <div class="container">
       <div class="row">
+          <input type="text" class="form-control" style="display: none" name="usuario" value="{{ Auth::user()->name }}">
+        <h3>Seleccione el Producto</h3><br>
+        {{-- COMIENZA DE ACA-----------------------------------------   --}}
         <div class="mb-3 col"> 
           <label for="exampleFormControlInput1" class="form-label">SELECCIONE VARIEDAD</label> 
           <select class="form-select mb-1" name="variedad" value="{{old('variedad')}}">
@@ -23,9 +30,12 @@
           <label for="exampleFormControlInput1" class="form-label">TIPO VARIEDAD</label> 
           <select class="form-select mb-1" name="tipo" value="{{old('tipo')}}">
             <br><option selected>seleccione una opcion</option>
-            <option value="1">#</option>
-            <option value="2">#</option>
-            <option value="3">#</option>
+            <option value="flame seedles">flame seedles</option>
+            <option value="crimson seedless">crimson seedless</option>
+            <option value="allison">allison</option>
+            <option value="thompson_seedless">thompson_seedless</option>
+            <option value="superior_seedless">superior_seedless</option>
+            <option value="melody">melody</option>
             {!! $errors->first('tipo') !!}
           </select> 
         </div>
@@ -48,16 +58,12 @@
                     <option value="CLAMSHEL">CLAMSHEL</option>
                     <option value="BOLSA">BOLSA</option>
                     {!! $errors->first('embalaje') !!}
-                </select><br>
+                </select>
         </div>
-      </div>
-      <div class="mb-3 col-6">
-        <label for="exampleFormControlTextarea1" class="form-label">escriba una pequeña reseña</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descripcion"value="{{old('descripcion')}}"></textarea>
-        {!! $errors->first('descripcion') !!}
-      </div><hr>
+      </div><hr>  
+      
 
-      <h4>Antecedente Empresa</h4><br>
+      <h3>Antecedente Empresa</h3><br>
       <div class="row">        
         <div class="mb-3 col">
             <label for="exampleInputEmail1" class="form-label">Rut Empresa</label>
@@ -79,7 +85,15 @@
             {!! $errors->first('direccion') !!}
             <div id="emailHelp" class="form-text">Direccion</div>
         </div>
+        <input type="text" class="form-control" style="display: none" name="estado" value="En proceso">
       </div><br>
+
+      <div class="mb-6 col-5">
+        <label for="exampleFormControlTextarea1" class="form-label">escriba una pequeña reseña</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" name="descripcion"value="{{old('descripcion')}}"></textarea>
+        {!! $errors->first('descripcion') !!}
+      </div><hr>
+
       <button type="submit" class="btn bg-success text-light">GUARDAR</button>
   </form>
 @endsection
