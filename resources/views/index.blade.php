@@ -44,7 +44,7 @@
         </section>      
         <section id="quienessomos" class="content">
 
-            <h1>MODIFICACION DEL NOTEBOOK</h1>
+            {{-- <h1>MODIFICACION DEL NOTEBOOK</h1> --}}
 
             <h2>¿QUIENES SOMOS?</h2>
             <p>
@@ -108,7 +108,7 @@
             </ul><br><br><br>
         </div>
         </section>
-        <section id="equipo" class="content">
+        {{-- <section id="equipo" class="content">
             <br><br><h2>NUESTRO EQUIPO</h2>
             <table>
                 <tr >
@@ -118,7 +118,7 @@
                 </tr>
             </table>
  
-        </section>
+        </section> --}}
 
 
         <div class="btn-whatsapp">

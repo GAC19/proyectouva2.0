@@ -37,40 +37,66 @@
         <div><h3>Cambio de Domicilio</h3></div><hr> 
         <div class="row">
             <div class="col-2">
-                <h3 style="text-align: left">Nro.:</h3>
-                <h3 style="text-align: left">Variedad:</h3>
-                <h3 style="text-align: left">Tipo:</h3>
-                <h3 style="text-align: left">Categoria: </h3>
-                <h3 style="text-align: left">Embalaje:</h3>
-                <h3 style="text-align: left">Descripcion:</h3>
-                <h3 style="text-align: left">Rut Empresa:</h3>
-                <h3 style="text-align: left">Nombre Empresa:</h3>
-                <h3 style="text-align: left">Direccion:</h3>
+                <h6 style="text-align: left">Nro.:</h6>
+                <h6 style="text-align: left">Variedad:</h6>
+                <h6 style="text-align: left">Tipo:</h6>
+                <h6 style="text-align: left">Categoria: </h6>
+                <h6 style="text-align: left">Embalaje:</h6>
+                <h6 style="text-align: left">Descripcion:</h6>
+                <h6 style="text-align: left">Rut Empresa:</h6>
+                <h6 style="text-align: left">Nombre Empresa:</h6>
+                <h6 style="text-align: left">Direccion:</h6>
                 {{-- <h3 style="text-align: left">editar {{$prod->descripcion}}</h3> --}}
             </div>
             <div class="col-4">
-                <h3 style="text-align: left">{{$prod->id}}</h3>
-                <h3 style="text-align: left">{{$prod->variedad}}</h3>
-                <h3 style="text-align: left">{{$prod->tipo}}</h3>
-                <h3 style="text-align: left">{{$prod->categoria}}</h3>
-                <h3 style="text-align: left">{{$prod->embalaje}}</h3>
-                <h3 style="text-align: left">{{$prod->descripcion}}</h3>
-                <h3 style="text-align: left">{{$prod->rut_empresa}}</h3>
-                <h3 style="text-align: left">{{$prod->nombre_empresa}}</h3>
-                <h3 style="text-align: left">{{$prod->direccion}}</h3>
+                <h6 style="text-align: left">{{$prod->id}}</h6>
+                <h6 style="text-align: left">{{$prod->variedad}}</h6>
+                <h6 style="text-align: left">{{$prod->tipo}}</h6>
+                <h6 style="text-align: left">{{$prod->categoria}}</h6>
+                <h6 style="text-align: left">{{$prod->embalaje}}</h6>
+                <h6 style="text-align: left">{{$prod->descripcion}}</h6>
+                <h6 style="text-align: left">{{$prod->rut_empresa}}</h6>
+                <h6 style="text-align: left">{{$prod->nombre_empresa}}</h6>
+                <h6 style="text-align: left">{{$prod->direccion}}</h6>
                 {{-- <h3 style="text-align: left">editar {{$prod->descripcion}}</h3> --}}
+            </div>
+            <div class="col-6">
+                <div class="container">
+                    <form action="{{route('adm.updatecompra', $prod->id)}}" method="POST">
+                        @method('PUT')
+                        @csrf
+                        {{-- id:<input type="text" name="id" class="form-control mb-2" style="display:none" value="{{$pers->id}}"> --}}
+                        <input type="text" name="variedad" class="form-control mb-2" style="display:none" value="{{$prod->variedad}}">
+                        <input type="text" name="tipo" class="form-control mb-2" style="display:none" value="{{$prod->tipo}}">
+                        <input type="text" name="categoria" class="form-control mb-2" style="display:none" value="{{$prod->categoria}}">
+                        <input type="text" name="embalaje" class="form-control mb-2" style="display:none" value="{{$prod->embalaje}}">
+                        <input type="text" name="descripcion" class="form-control mb-2" style="display:none" value="{{$prod->descripcion}}">
+                        <input type="text" name="rut_empresa" class="form-control mb-2" style="display:none" value="{{$prod->rut_empresa}}">
+                        <input type="text" name="nombre_empresa" class="form-control mb-2" style="display:none" value="{{$prod->nombre_empresa}}">
+                        <input type="text" name="direccion" class="form-control mb-2" style="display:none" value="{{$prod->direccion}}">
+                        <select name="estado" class="mb-4 col-4" value="{{$prod->estado}}">
+                            <option value="En Proceso">En Proceso</option>
+                            <option value="En Produccion">En Produccion</option>
+                            <option value="Inpeccion de Calidad">Inpeccion de Calidad</option>
+                            <option value="Area Despacho">Area Despacho</option>
+                            <option value="En Camino">En Camino</option>
+                            <option value="NULAR COMPRA" class="text-red">NULAR COMPRA</option>
+                        </select>  
+                        <button class="btn btn-success" type="submit">GUARDAR</button>
+                    </form>
+                    
+                </div>
 
             </div>
-
         </div><hr>
 
     </div>
 
-    <div class="container">
+    {{-- <div class="container">
         <form action="{{route('adm.updatecompra', $prod->id)}}" method="POST">
             @method('PUT')
             @csrf
-            {{-- id:<input type="text" name="id" class="form-control mb-2" style="display:none" value="{{$pers->id}}"> --}}
+            id:<input type="text" name="id" class="form-control mb-2" style="display:none" value="{{$pers->id}}">
             <input type="text" name="variedad" class="form-control mb-2" style="display:none" value="{{$prod->variedad}}">
             <input type="text" name="tipo" class="form-control mb-2" style="display:none" value="{{$prod->tipo}}">
             <input type="text" name="categoria" class="form-control mb-2" style="display:none" value="{{$prod->categoria}}">
@@ -85,11 +111,12 @@
                 <option value="Inpeccion de Calidad">Inpeccion de Calidad</option>
                 <option value="Area Despacho">Area Despacho</option>
                 <option value="En Camino">En Camino</option>
+                <option value="NULAR COMPRA" class="text-red">NULAR COMPRA</option>
             </select>  
             <button class="btn btn-success" type="submit">GUARDAR</button>
         </form>
         
-    </div>
+    </div> --}}
 </body>
 </html>
 

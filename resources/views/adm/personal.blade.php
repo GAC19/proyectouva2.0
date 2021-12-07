@@ -4,15 +4,6 @@
 
   <div class="container">
     <h1>PERSONAL</h1><br>
-{{-- 
-    <div class="container">
-      <div class="float-right">
-        <form class="form-inline">
-          <input name="buscarpor" class="form-control mr-sm-2" type="search" placeholder="Buscar por nombre" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Buscar</button>
-        </form>
-      </div>
-    </div><br> --}}
    
     <table class="table">
         <thead>
@@ -35,17 +26,29 @@
                     <td>{{$item->perfil}}</td>
                     {{-- <td><a href="{{route('editar', $us)}}" class="btn btn-success btn-ms">Editar</a> <a href="#" class="btn btn-danger btn-ms">Eliminar</a></td> --}}
                     <td><a href="{{route('adm.editar', $item)}}" class="btn btn-warning btn-sm">Editar</a>
-                    <form action="{{route('adm.eliminar', $item)}}" method="POST" class="d-inline">
+                    <form action="{{route('adm.eliminar', $item)}}" method="POST" class="d-inline" id="btn1">
                       
                       @method('DELETE')
                       @csrf
                       <button class="btn btn-danger" type="submit">Eliminar</button>
                     </form>
+                    
                   </td>
-                </tr>
             @endforeach
       </table>
   </div>
 
-  @endsection
+@endsection
+<script> function EventoAlert(){
+  Swal.fire('Any fool can use a computer')
+}
+</script>
+{{-- @section('js') --}}
+
+
+{{-- <script src="{{ asset('static/js/sweetalert29.js') }}"></script> --}}
+  
+    
+  
+{{-- @endsection --}}
  

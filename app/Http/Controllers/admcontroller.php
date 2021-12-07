@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App;
 use App\Models;
+use App\Models\compra;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
@@ -11,33 +12,30 @@ use Illuminate\Support\Facades\DB;
 
 class admcontroller extends Controller
 {
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
+    
     public function administrador(){       
         return view('adm/home_adm');
 
     }
-    public function historialtotal(){        
-        $segui = App\Models\compra::all();
+    public function historialtotal(Request $request){        
+        $nombre=$request->get('buscarpor');
+        $segui = compra::where('usuarios','like',"%$nombre%")->paginate(10);
         return view('adm/historialtotal', compact('segui'));
     }
 
-    public function personal(){
-        // $nombre=$request->get('buscarpor');
-        // // dd($nombre);
-        
-        // $us = user::where('name','like',"adm")->paginate(10);
-        
+    // public function historialtotal(){        
+        // $segui = App\Models\compra::all();
+        // return view('adm/historialtotal', compact('segui'));
+    // }
+
+    public function personal(){   
         $us = App\Models\User::all();
         return view('adm/personal', compact('us'));
-        
-        // $us = User::paginate(1); //cantidad de columna a mostrar
     }
-
-    public function personal2(){
-        $us2 = App\Models\User::all();
-        return view('adm/personal', compact('us2'));
-    }
-
-
 
     public function editar($id){
         $pers=App\Models\User::findOrFail($id);
@@ -64,12 +62,13 @@ class admcontroller extends Controller
 
         $notaEliminar = App\Models\User::findOrFail($id);
         $notaEliminar->delete();
+
+        $eliminarcompras = App\Models\compra::findOrFail($id);
+        $eliminarcompras->delete();
+
     
         return back()->with('mensaje', 'Nota Eliminada');
     }
-    
-    
-    
     
     public function agregarpersonal(Request $request){
         $pers = new App\Models\User;
@@ -82,12 +81,6 @@ class admcontroller extends Controller
         return back();
     }
 
-
-
-
-
-
-    
     public function editarcompra($id){
         $prod=App\Models\compra::findOrFail($id);
         return view('adm.editarcompra', compact('prod'));
@@ -112,4 +105,6 @@ class admcontroller extends Controller
         return redirect('adm/historialtotal');
 
     }
+
+
 }
